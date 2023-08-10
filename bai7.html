@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TÌM CÁC SỐ CHIA HẾT CHO 6 và 9</title>
+    <style>
+        .table {
+            width: 300px;
+            height: 100px;
+            background-color: rgb(222, 235, 106);
+            border: 1px solid rgb(243, 172, 65);
+        }
+
+        .element1 {
+            height: 50px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid rgb(226, 176, 39);
+            justify-content: center;
+        }
+        .element2 {
+            height: 50px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid rgb(214, 149, 52);
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="display: flex; justify-content: center;">TÌM CÁC SỐ CHIA HẾT CHO 6 và 9 </div>
+    <div style="display: flex; justify-content: center">
+        <div class="table">
+            <div class="element1" style="display: flex; justify-content: center; gap: 10px;">
+                <div>Nhập số</div>
+                <div> <input type="text" id="nhapso" style="width: 50px;"> <button onclick="xuat_ket_qua()">In</button></div>
+            </div>
+            <div class="element2" id="bangcuuchuong"></div>
+        </div>
+    </div>
+
+    <script>
+        function xuat_ket_qua() {
+            let so = parseFloat(document.getElementById('nhapso').value);
+            let ketQua = document.getElementById('bangcuuchuong');
+            
+            if (!isNaN(so)) {
+                ketQua.innerHTML = '';
+                
+                for (let i = 1; i <= so; i++) {
+                    if (i % 6 === 0 && i % 9 === 0) {
+                           ketQua.innerHTML += `${i}<br>`;
+                    }
+                }
+            } else {
+                alert('Số nhập không hợp lệ !');
+            }
+        }
+    </script>
+</body>
+
+</html>

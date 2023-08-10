@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vòng lặp while</title>
+    <style>
+        .table {
+            width: 300px;
+            height: 100px;
+            background-color: rgb(222, 235, 106);
+            border: 1px solid rgb(243, 172, 65);
+        }
+
+        .element1 {
+            height: 50px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid rgb(226, 176, 39);
+            justify-content: center;
+        }
+        .element2 {
+            height: 50px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid rgb(214, 149, 52);
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="display: flex; justify-content: center;">TÌM SỐ ĐẦU TIÊN CHIA HẾT CHO 5 và 7</div>
+    <div style="display: flex; justify-content: center">
+        <div class="table">
+            <div class="element1" style="display: flex; justify-content: center; gap: 10px;">
+                <div>Từ số</div>
+                <div> <input type="text" id="tuso" style="width: 50px;"> </div>
+                <div>Đến số</div>
+                <div> <input type="text" id="denso" style="width: 50px;"> <button onclick="xuat_ket_qua()">In</button></div>
+            </div>
+            <div class="element2" id="ketqua"></div>
+        </div>
+    </div>
+
+    <script>
+        function xuat_ket_qua() {
+            let tuso = parseFloat(document.getElementById('tuso').value);
+            let denso = parseFloat(document.getElementById('denso').value);
+            let ketQua = document.getElementById('ketqua');
+
+            if (!isNaN(tuso) && !isNaN(denso) && tuso <= denso) {
+                let i = tuso;
+                while (i <= denso) {
+                    if (i % 5 === 0 && i % 7 === 0) {
+                        ketQua.innerHTML = `Số đầu tiên chia hết cho 5 và 7 trong khoảng từ ${tuso} đến ${denso}: ${i}`;
+                        break;
+                    }
+                    i++;
+                }
+                if (i > denso) {
+                    ketQua.innerHTML = `Không tìm thấy số chia hết cho 5 và 7 trong khoảng từ ${tuso} đến ${denso}`;
+                }
+            } else {
+                ketQua.innerHTML = 'Nhập lại';
+            }
+        }
+    </script>
+</body>
+
+</html>

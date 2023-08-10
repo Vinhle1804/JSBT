@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bài 3</title>
+    <style>
+      .table {
+        width: 300px;
+        height: 250px;
+        background-color: greenyellow;
+        border: 1px solid green;
+      }
+      .element1 {
+        height: 50px;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid green;
+        justify-content: center;
+      }
+      input{ width: 100px;
+
+      }
+      .element2 {
+        height: 50px;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid green;
+        justify-content: center;
+      }
+      .element21 {
+        height: 50px;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid green;
+        justify-content: center;
+      }
+      .element22 {
+        height: 50px;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid green;
+        justify-content: center;
+      }
+      .element3 {
+        height: 50px;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid green;
+        justify-content: center;
+      }
+      .element4 {
+        height: 50px;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid green;
+        justify-content: center;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="display: flex; justify-content: center">
+      <div class="table">
+        <div class="element1">Tính tiền thưởng cuối năm</div>
+        <div class="element2">
+          <p>Tiền lương:</p>
+          <input type="number" id="tienluong" />
+        </div>
+        <div class="element21">
+          <p>Xếp loại:</p>
+          <select id="xeploai" name="xeploai" required>
+            <option value="A">Loại A</option>
+            <option value="B">Loại B</option>
+            <option value="C">Loại C</option>
+            <option value="D">Loại D</option>
+          </select>
+        </div>
+        <div class="element3">
+          <button onclick="ketqua()">Xuất kết quả</button>
+        </div>
+        <div class="element4" id="ketqua"></div>
+      </div>
+    </div>
+  
+    <script>
+      function ketqua() {
+        const tienluong = +(document.getElementById("tienluong").value);
+        const xeploai = document.getElementById("xeploai").value;
+        let heso = 0;
+  
+        switch (xeploai) {
+          case "A":
+            heso = 2;
+            break;
+          case "B":
+            heso = 1.8;
+            break;
+          case "C":
+            heso = 1.2;
+            break;
+          case "D":
+            heso = 0.8;
+            break;
+        }
+  
+        const tienthuong = tienluong * heso;
+        document.getElementById("ketqua").innerHTML = "Tiền thưởng là "+ tienthuong.toFixed(0) +" đồng";
+      }
+    </script>
+  </body>
+</html>

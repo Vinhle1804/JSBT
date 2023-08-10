@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bài 3</title>
+    <style>
+      .table {
+        width: 300px;
+        height: 200px;
+        background-color: greenyellow;
+        border: 1px solid green;
+      }
+      .element1 {
+        height: 50px;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid green;
+        justify-content: center;
+      }
+      .element2 {
+        height: 50px;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid green;
+        justify-content: center;
+      }
+      .element3 {
+        height: 50px;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid green;
+        justify-content: center;
+      }
+      .element4 {
+        height: 50px;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid green;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="display: flex; justify-content: center">
+      <div class="table">
+        <div class="element1">Kết quả cuối học kỳ</div>
+        <div class="element2">
+          <p>Điểm trung bình:</p>
+          <input type="number" id="diemtb" />
+        </div>
+        <div class="element3">
+          <p>Kết quả:</p>
+          <label
+            for="ketqua"
+            style="height: 20px; width: 200px; background-color: aliceblue; text-align: center;" 
+            ><span id="ketqua"></span>
+          </label>
+        </div>
+        <div class="element4">
+          <button onclick="diem()">Xuất kết quả</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function diem() {
+        let diemtb = document.getElementById("diemtb").value;
+        let ketqua = diemtb;
+        if (diemtb >= 5) {
+          ketqua = "Được lên lớp";
+        } else {
+          ketqua = "Ở lại lớp";
+        }
+        document.getElementById("ketqua").innerHTML = ketqua;
+      }
+    </script>
+  </body>
+</html>
