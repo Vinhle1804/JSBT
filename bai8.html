@@ -1,70 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bai 6</title>
-    <style>
-        .table {
-            width: 300px;
-            height: 100px;
-            background-color: rgb(222, 235, 106);
-            border: 1px solid rgb(243, 172, 65);
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bai 6</title>
+  <style>
+    .table {
+      width: 300px;
+      height: 100px;
+      background-color: rgb(222, 235, 106);
+      border: 1px solid rgb(243, 172, 65);
+    }
 
-        .element1 {
-            height: 50px;
-            display: flex;
-            align-items: center;
-            border-bottom: 1px solid rgb(226, 176, 39);
-            justify-content: center;
-        }
-        .element2 {
-            height: 50px;
-            display: flex;
-            align-items: center;
-            border-bottom: 1px solid rgb(214, 149, 52);
-            justify-content: center;
-        }
-    </style>
+    .element1 {
+      height: 50px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid rgb(226, 176, 39);
+      justify-content: center;
+    }
+    .element2 {
+      background-color: rgb(222, 235, 106);
+      min-height: 50px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid rgb(214, 149, 52);
+      justify-content: center;
+    }
+  </style>
 </head>
-
 <body>
-    <div style="display: flex; justify-content: center;">IN BẢNG CỬU CHƯƠNG </div>
-    <div style="display: flex; justify-content: center">
-        <div class="table">
-            <div class="element1" style="display: flex; justify-content: center; gap: 10px;">
-                <div>Nhập cửu chương</div>
-                <div> <button onclick="inBangCuuChuong()">Nhập</button></div>
-            </div>
-            <div class="element2" id="bangcuuchuong"></div>
-        </div>
+  <div style="display: flex; justify-content: center">IN BẢNG CỬU CHƯƠNG</div>
+  <div style="display: flex; justify-content: center">
+    <div class="table">
+      <div class="element1" style="display: flex; justify-content: center; gap: 10px">
+        <div>Nhập cửu chương</div>
+        <div><button onclick="inBangCuuChuong()">Nhập</button></div>
+      </div>
+      <div class="element2" id="bangcuuchuong"></div>
     </div>
+  </div>
 
-    <script>
-       
+  <script>
+    function taoBangCuuChuong(so) {
+      let ketQua = "";
+      let i = 1;
+      while (i <= 10) {
+        let ketqua = so * i;
+        ketQua += `${so} x ${i} = ${ketqua}<br>`;
+        i++;
+      }
+      return ketQua;
+    }
 
-        function inBangCuuChuong() {
-            let so;
-            do {
-                so = parseFloat(prompt('Nhập một số:', ''));
-            } while (isNaN(so));
+    function inBangCuuChuong() {
+      let so = +prompt("Nhập số cần tính bảng cửu chương (từ 1 đến 10):");
+      while (!Number.isInteger(so) || so < 1 || so > 10) {
+        so = +prompt("Nhập lại (từ 1 đến 10):");
+      }
 
-            let ketQua = taoBangCuuChuong(so);
-            document.getElementById('bangcuuchuong').innerHTML = ketQua;
-        }
-        function taoBangCuuChuong(so) {
-            let ketQua = '';
-            let i = 1;
-            while (i <= 10) {
-                let ketqua = so * i;
-                ketQua += `${so} x ${i} = ${ketqua}<br>`;
-                i++;
-            }
-            return ketQua;
-        }
-    </script>
+      let ketQua = taoBangCuuChuong(so);
+      document.getElementById("bangcuuchuong").innerHTML = ketQua;
+    }
+  </script>
 </body>
-
 </html>
